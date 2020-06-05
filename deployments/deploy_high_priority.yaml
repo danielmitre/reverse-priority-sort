@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redis-high
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: redis
+      priority: high
+  template:
+    metadata:
+      labels:
+        app: redis
+        priority: high
+    spec:
+      containers:
+        - name: redis-high
+          image: redis
+          ports:
+            - containerPort: 9080
+          resources:
+            requests:
+              memory: 200Mi
+      priorityClassName: priority-high
+      imagePullSecrets:
+        - name: regcred

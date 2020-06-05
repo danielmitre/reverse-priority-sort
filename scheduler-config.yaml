@@ -1,0 +1,14 @@
+apiVersion: kubescheduler.config.k8s.io/v1alpha2
+kind: KubeSchedulerConfiguration
+leaderElection:
+  leaderElect: false
+clientConnection:
+  kubeconfig: /etc/kubernetes/admin.conf
+profiles:
+  - schedulerName: default-scheduler
+    plugins:
+      queueSort:
+        enabled:
+          - name: ReverseSort
+        disabled:
+          - name: "*"

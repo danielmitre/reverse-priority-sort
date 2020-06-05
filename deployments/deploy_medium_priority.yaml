@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redis-medium
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: redis
+      priority: medium
+  template:
+    metadata:
+      labels:
+        app: redis
+        priority: medium
+    spec:
+      containers:
+        - name: redis-medium
+          image: redis
+          ports:
+            - containerPort: 9080
+          resources:
+            requests:
+              memory: 200Mi
+      priorityClassName: priority-medium
+      imagePullSecrets:
+        - name: regcred

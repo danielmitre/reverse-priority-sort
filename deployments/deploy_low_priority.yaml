@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redis-low
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: redis
+      priority: low
+  template:
+    metadata:
+      labels:
+        app: redis
+        priority: low
+    spec:
+      containers:
+        - name: redis-low
+          image: redis
+          ports:
+            - containerPort: 9080
+          resources:
+            requests:
+              memory: 200Mi
+      priorityClassName: priority-low
+      imagePullSecrets:
+        - name: regcred
