@@ -4,7 +4,11 @@ import (
 	"fmt"
 	"k8s.io/kubernetes/cmd/kube-scheduler/app"
 	"os"
+<<<<<<< HEAD
 	reverse "reverse-scheduler/pkg/reverse"
+=======
+	"reverse-scheduler/pkg/reverse"
+>>>>>>> 882d9b4... initial commit
 )
 
 func main() {
