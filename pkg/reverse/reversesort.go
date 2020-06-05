@@ -2,20 +2,11 @@ package reverse
 
 import (
 	"k8s.io/apimachinery/pkg/runtime"
-<<<<<<< HEAD
-	"k8s.io/kubernetes/pkg/api/v1/pod"
-	framework "k8s.io/kubernetes/pkg/scheduler/framework/v1alpha1"
-	"k8s.io/klog"
-)
-
-
-=======
 	"k8s.io/klog"
 	"k8s.io/kubernetes/pkg/api/v1/pod"
 	framework "k8s.io/kubernetes/pkg/scheduler/framework/v1alpha1"
 )
 
->>>>>>> 882d9b4... initial commit
 const Name = "ReverseSort"
 
 // ReverseSort is a plugin that reverts the default sort
